@@ -12,12 +12,12 @@
 	<div class="flex flex-col items-center justify-center" on:submit={handleSubmit}>
 		<h1 class="text-5xl font-extrabold text-primaryText">pitaka</h1>
 		<p class="mt-2 text-primaryText mb-8">Transactions Tracking. Simplified.</p>
-		<form class="w-[350px] flex flex-col items-center justify-center" on:submit={handleSubmit}>
-			<Input containerStyle="w-full mb-4" inputStyle="w-full" label="Email address" type="email" />
-			<Button buttonStyle="w-full" label="Email login link" />
+		<form class="w-80 flex flex-col items-center justify-center" on:submit={handleSubmit}>
+			<Input class="w-full" containerClass="w-full mb-4" label="Email address" type="email" />
+			<Button class="w-full" label="Email login link" />
 		</form>
 	</div>
-	<p class="absolute bottom-[30px] text-xs text-gray-400">
-		Developed by <a href="/"><u>Black Flower</u></a>
+	<p class="absolute bottom-7 text-xs text-gray-400">
+		Developed by <a href="/" class="underline">Black Flower</a>
 	</p>
 </div>

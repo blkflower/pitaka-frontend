@@ -1,7 +1,2 @@
-import Button from "./Button.svelte";
-import Input from "./Input.svelte";
-
-export {
-  Button,
-  Input,
-};
+export { default as Button } from "./Button.svelte";
+export { default as Input } from "./Input.svelte";
