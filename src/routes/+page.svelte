@@ -1,20 +1,52 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { Button, Input } from '$lib';
+	import { Button, Input, Alert } from '$lib/components';
+	import { isValidEmail } from '$lib/utils/validations';
+
+	let email = '';
+	let emailErrorMessage = '';
+	let formErrorMessage = '';
+
+	function clearErrorMessages() {
+		emailErrorMessage = '';
+		formErrorMessage = '';
+	}
 
 	function handleSubmit(event: Event) {
 		event.preventDefault();
+		clearErrorMessages();
+
+		if (!isValidEmail(email)) {
+			emailErrorMessage = 'Please enter a valid email address';
+			return;
+		}
+
+		formErrorMessage = 'Something went wrong while trying to email the login link. Please try again.'
+		
+		if (formErrorMessage) {
+			return;
+		}
+
 		goto('/dashboard');
 	}
 </script>
 
 <div class="flex flex-col items-center justify-center h-[100vh]">
-	<div class="flex flex-col items-center justify-center" on:submit={handleSubmit}>
+	<div class="flex flex-col items-center justify-center">
 		<h1 class="text-5xl font-extrabold text-primaryText">pitaka</h1>
 		<p class="mt-2 text-primaryText mb-8">Transactions Tracking. Simplified.</p>
 		<form class="w-80 flex flex-col items-center justify-center" on:submit={handleSubmit}>
-			<Input class="w-full" containerClass="w-full mb-4" label="Email address" type="email" />
-			<Button class="w-full" label="Email login link" />
+			<Input
+				class="w-full"
+				containerClass="w-full mb-4"
+				label="Email address"
+				bind:value={email}
+				errorMessage={emailErrorMessage}
+			/>
+			{#if formErrorMessage}
+				<Alert class="w-full mb-4" type="error" label={formErrorMessage} />
+			{/if}
+			<Button class="w-full" label="Email login link" disabled={!email} />
 		</form>
 	</div>
 	<p class="absolute bottom-7 text-xs text-gray-400">
