@@ -12,7 +12,7 @@
 
 <div class={$$props.containerClass}>
 	{#if label}
-		<p class={`mb-2 text-sm text-primaryText ${errorMessage && 'text-red-500'}`}>{label}</p>
+		<p class={`mb-2 text-sm text-slate-800 ${errorMessage && 'text-red-500'}`}>{label}</p>
 	{/if}
 	<input
 		class={`border p-2 px-4 rounded ${$$props.class} ${errorMessage && 'border-red-500'}`}

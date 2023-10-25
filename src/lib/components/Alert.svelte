@@ -1,5 +1,7 @@
 <script lang="ts">
-  export let type: 'info' | 'success' | 'warning' | 'error' = 'info';
+	import type { AlertType } from "$lib/types";
+
+  export let type: AlertType = 'info';
   export let label: string;
 
   $: borderStyle = () => {
