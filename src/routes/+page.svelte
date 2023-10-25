@@ -34,11 +34,11 @@
 </script>
 
 <div class="flex flex-col items-center justify-center h-[100vh]">
-	<div class="w-80 flex flex-col items-center justify-center">
+	<div class="w-96 flex flex-col items-center justify-center">
 		<h1 class="text-5xl font-extrabold text-slate-800">pitaka</h1>
 		<p class="mt-2 text-slate-800 mb-8">Transactions Tracking. Simplified.</p>
 		{#if !isLoggedIn}
-			<form class="flex flex-col items-center justify-center" on:submit={handleSubmit}>
+			<form class="w-full flex flex-col items-center justify-center" on:submit={handleSubmit}>
 				<Input
 					class="w-full"
 					containerClass="w-full mb-4"
